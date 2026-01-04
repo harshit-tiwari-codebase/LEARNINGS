@@ -57,19 +57,24 @@ input.addEventListener("input", () => {
   let suggestions = "";                  // har baar naye suggestions ke liye empty rakha
 
   // yahan maine array ke har name ko input value se match karwaya
-  arr.forEach((obj) => {
-    // agar name input se start hota hai tabhi suggestion banega
-    if (obj.name.toLowerCase().startsWith(value)) {
-      suggestions += `
-        <div class="inner">
-          <h1>
-            <i class="ri-search-line"></i>
-            ${obj.name}
-          </h1>
-        </div>
-      `;
-    }
-  });
+arr.forEach((obj) => {
+  if (obj.name.toLowerCase().startsWith(value)) {
+    suggestions += `
+      <div class="inner">
+        <img 
+          src="${obj.image}" 
+          alt="${obj.name}"
+          referrerpolicy="no-referrer"
+        >
+        <h1>
+          <i class="ri-search-line"></i>
+          ${obj.name}
+        </h1>
+      </div>
+    `;
+  }
+});
+
 
   // agar input box empty hai to suggestions nahi dikhane
   if (value === "") {

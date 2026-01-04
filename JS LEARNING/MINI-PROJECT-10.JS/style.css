@@ -150,3 +150,12 @@ main img{
 .inner h1{
   font-size: 15px;
 }
+
+.inner img{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
