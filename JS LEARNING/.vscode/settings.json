@@ -25,5 +25,6 @@
   },
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
-  "livePreview.autoRefreshPreview": "onSave"
+  "livePreview.autoRefreshPreview": "onSave",
+  "liveServer.settings.port": 5501
 }
