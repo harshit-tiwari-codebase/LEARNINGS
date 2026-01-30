@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+#main{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0d1117;   /* GitHub dark */
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* USER CARD */
+.card{
+    width: 260px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* AVATAR */
+.card img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* USERNAME */
+.card h3{
+    color: #c9d1d9;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* PROFILE LINK */
+.card a{
+    color: #58a6ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.card a:hover{
+    text-decoration: underline;
+}
+
+.user-card{
+  width: 320px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.user-card img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.user-card h2{
+  font-size: 20px;
+}
+
+.user-card p{
+  color: #8b949e;
+  margin-bottom: 12px;
+}
+
+.stats{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.user-card a{
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 14px;
+}
