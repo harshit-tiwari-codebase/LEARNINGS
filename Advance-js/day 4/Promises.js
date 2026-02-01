@@ -1,15 +1,15 @@
-// const p1 = fetch("https://api.github.com/users");
+const p1 = fetch("https://api.github.com/users");
 
 
-// const p2 = p1.then((data)=>{
-//     return data.json();
+const p2 = p1.then((data)=>{
+    return data.json();
     
-// })
+})
 
-// p2.then((Response)=>{
-//     console.log(Response);
+p2.then((Response)=>{
+    console.log(Response);
     
-// })
+})
 
 fetch("https://api.github.com/users")
   .then((response) => {
