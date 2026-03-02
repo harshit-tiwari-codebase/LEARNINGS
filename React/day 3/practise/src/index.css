@@ -1,0 +1,60 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html,body {
+  width:  100%;
+  height: 100%;
+}
+
+/* Full Screen Center Layout */
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Card Design */
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.card h1 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+/* Paragraph */
+.card p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Button */
+.card button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background-color: #1e40af;
+}
