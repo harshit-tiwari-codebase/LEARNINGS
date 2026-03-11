@@ -44,7 +44,7 @@ const Card = ({ props }) => {
           <h1 className="font-bold text-xl ">{props.salary}</h1>
           <h2>{props.location}</h2>
         </div>
-        <button className="px-5 py-1 text-[#fff] bg-black text-center rounded-sm">
+        <button className="px-5 py-1 text-[#fff] hover:rounded-2xl transition-all duration-500 bg-black text-center rounded-sm">
           Apply Now
         </button>
       </div>
