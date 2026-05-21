@@ -2,8 +2,9 @@
 
 const express = require("express");
 const notemodel = require("./models/notes.model");
+const cors = require("cors");
 const app = express();
-
+app.use(cors())
 app.use(express.json());
 
 const notes = [];
@@ -28,11 +29,11 @@ app.post("/api/notespad", async (req, res) => {
 
 //get the data using the api
 app.get("/api/notespad", async (req, res) => {
-  const a = await notemodel.find();
+  const notes = await notemodel.find();
   res.status(200).json({
     message: "note created",
-    a,
-  }) / api;
+    notes,
+  }) ;
 });
 
 //create the delete data using DELETE method
