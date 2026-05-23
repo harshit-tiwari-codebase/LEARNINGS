@@ -11,7 +11,7 @@ const App = () => {
   async function fetchNotes() {
     try{
       const response = await axios.get(
-        "http://localhost:3000/api/notespad"
+        "https://learnings-4.onrender.com/api/notespad"
       );
 
       setnote(response.data.notes);
@@ -36,7 +36,7 @@ const App = () => {
     try{
 
       await axios.post(
-        "http://localhost:3000/api/notespad",
+        "https://learnings-4.onrender.com/api/notespad",
         {
           title,
           description:desc

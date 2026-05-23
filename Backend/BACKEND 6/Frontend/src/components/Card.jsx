@@ -8,7 +8,7 @@ const Card = ({ elem, fetchNotes }) => {
 
   async function deleteHandler(noteId) {
    await axios
-      .delete(`http://localhost:3000/api/notespad/${noteId}`)
+      .delete(`https://learnings-4.onrender.com/api/notespad/${noteId}`)
       .then(() => {
         console.log("note is deleted successfully");
         fetchNotes();
@@ -17,7 +17,7 @@ const Card = ({ elem, fetchNotes }) => {
 
   async function updateHandler(elemId) {
     // console.log("updateHandler is woerking");
-     await axios.patch(`http://localhost:3000/api/notespad/${elemId}`, {description : editDesc}).then(()=>{fetchNotes()})
+     await axios.patch(`https://learnings-4.onrender.com/api/notespad/${elemId}`, {description : editDesc}).then(()=>{fetchNotes()})
     
   }
   return (
