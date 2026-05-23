@@ -3,65 +3,149 @@
 const express = require("express");
 const notemodel = require("./models/notes.model");
 const cors = require("cors");
+const path = require("path");
+
 const app = express();
+
+// Middlewares
 app.use(cors());
 app.use(express.json());
-const path = require("path");
-const notes = [];
 
+// Serve React build files
+app.use(express.static(path.join(__dirname, "../public")));
+
+
+// Home Route
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.send("Backend is running...");
 });
 
-//used to create the data using POST method
+
+// Create Note (POST)
 app.post("/api/notespad", async (req, res) => {
-  // notes.push(req.body);
 
-  const { title, description } = req.body;
-  const note = await notemodel.create({ title, description });
-  console.log("note is created");
+  try {
 
-  res.status(201).json({
-    message: "note created",
-    note,
-  });
+    const { title, description } = req.body;
+
+    const note = await notemodel.create({
+      title,
+      description
+    });
+
+    console.log("Note created");
+
+    res.status(201).json({
+      message: "Note created successfully",
+      note
+    });
+
+  } 
+  
+  catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
 });
 
-//get the data using the api
+
+// Get Notes (GET)
 app.get("/api/notespad", async (req, res) => {
-  const notes = await notemodel.find();
-  res.status(200).json({
-    message: "note created",
-    notes,
-  });
+
+  try {
+
+    const notes = await notemodel.find();
+
+    res.status(200).json({
+      message: "Notes fetched successfully",
+      notes
+    });
+
+  } 
+  
+  catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
 });
 
-//create the delete data using DELETE method
+
+// Delete Note (DELETE)
 app.delete("/api/notespad/:id", async (req, res) => {
-  await notemodel.findByIdAndDelete(req.params.id);
 
-  console.log(req.params.id);
+  try {
 
-  res.status(200).json({
-    message: "notes deleted successfully",
-  });
+    await notemodel.findByIdAndDelete(
+      req.params.id
+    );
+
+    res.status(200).json({
+      message: "Note deleted successfully"
+    });
+
+  } 
+  
+  catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
 });
 
-//create the update feature using the PATCH method
 
+// Update Note (PATCH)
 app.patch("/api/notespad/:id", async (req, res) => {
-  const id = req.params.id;
-  const { description } = req.body;
-  await notemodel.findByIdAndUpdate(id, { description });
-  res
-    .status(200)
-    .json({ message: "notes description is updated successfully" });
+
+  try {
+
+    const { description } = req.body;
+
+    const updatedNote =
+      await notemodel.findByIdAndUpdate(
+        req.params.id,
+        { description },
+        { new: true }
+      );
+
+    res.status(200).json({
+      message: "Note updated successfully",
+      updatedNote
+    });
+
+  } 
+  
+  catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
 });
 
-app.use("*name", (req, res) => {
-  
-  
-  res.sendFile(path.join(__dirname,"..","/public/index.html"));
+
+// React routes handler
+app.get("*name", (req, res) => {
+
+  res.sendFile(
+    path.join(
+      __dirname,
+      "../public/index.html"
+    )
+  );
+
 });
 
 module.exports = app;
