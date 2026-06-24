@@ -10,7 +10,7 @@ app.use(express.json());
 //requiring database
 
 const db = require("./config/database");
-const connectTodb = require("./config/database");
+// const connectTodb = require("./config/database");
  connectTodb();
 
 const notes = [];

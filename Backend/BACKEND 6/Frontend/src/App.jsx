@@ -64,7 +64,7 @@ const App = () => {
 
         <div className="max-w-7xl mx-auto px-10 py-5 flex justify-between items-center">
 
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+          <h1 className="text-4xl font-bold bg-linear-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
 
             NotesFlow
 
@@ -80,7 +80,7 @@ const App = () => {
 
       <div className="max-w-7xl mx-auto p-10">
 
-        {/* Create section */}
+  
 
         <form
         onSubmit={submitHandler}
